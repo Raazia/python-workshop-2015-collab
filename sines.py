@@ -13,6 +13,7 @@ usage:
 
     python sines.py -n 3 -l -f file.png
 """
+import argparse
 
 def check_args(options):
     """ 4. Return a Boolean check of the arguments"""
@@ -24,17 +25,35 @@ def sine_plot(n):
 
 def create_parser():
     """ Create a parser to use"""
-    pass
+    parser = argparse.ArgumentParser(prog="Program Script")    
+    parser.add_argument('-n', dest="num", 
+                        help="number of sines plotted")
+    parser.add_argument('-f', dest="file",
+                        help="save as file")
+    parser.add_argument('-l', dest="legend", action="store_true",
+                        help="legend")
+    
+    return parser
 
 def main(options):
     """ The main function 
-
     3.  Plot to a file
     5.  Add a legend"""
     pass
 
 
-if __name__ == '__main__':
-    # 1. parse options
+if __name__ == '__main__':   
+    
+    parser = create_parser()
+    """
+        Now we have defined what arguments the script takes, parse the arguments provided
+        this defaults to sys.argv.  This returns a Namespace object, which is a simple object
+        with the arguments as attributes
+    """
+    options = parser.parse_args()  
+    
+    """
+        Now do whatever the script needs to do
+    """
     main(options)
 

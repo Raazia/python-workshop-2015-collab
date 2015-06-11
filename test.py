@@ -1,7 +1,8 @@
 import os
 import unittest
-
+import sys
 import sines
+
 
 class MyTestCase(unittest.TestCase):
 
@@ -10,7 +11,7 @@ class MyTestCase(unittest.TestCase):
 
     def test_argument_parsing(self):
         parser = sines.create_parser()
-        options = parser.parse_args('-n 3 -l -f afile.png')
+        options = parser.parse_args()
 
         self.assertEqual(options.num, 3)
         self.assertTrue(options.legend)
@@ -41,6 +42,6 @@ class MyTestCase(unittest.TestCase):
         sines.main(options)
 
         self.assertTrue(os.path.exists(self.filename))
-        
+
 if __name__ == '__main__':
     unittest.main()
