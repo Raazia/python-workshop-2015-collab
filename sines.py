@@ -42,7 +42,7 @@ def check_args(options):
 
 def sine_plot(n):
     """ 2. This plots the sine waves and returns an axis object"""
-    pass
+    
 
 def create_parser():
     """ Create a parser to use"""
@@ -64,6 +64,9 @@ def main(options):
     if options.file:
         plt.savefig(options.file)
     print "Has the figure been saved? {}".format(os.path.exists(options.file))
+    
+    if options.legend:
+        plt.legend(['Sines'])
 
 
 if __name__ == '__main__':   
@@ -80,4 +83,5 @@ if __name__ == '__main__':
         Now do whatever the script needs to do
     """
     main(options)
+    
 
