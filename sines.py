@@ -15,6 +15,7 @@ usage:
 """
 import argparse
 import os
+import sys
 import matplotlib.pyplot as plt
 import numpy as np
 import random
@@ -23,26 +24,25 @@ def check_args(options):
     """ 4. Return a Boolean check of the arguments"""
     
     #check if the number of variables is an integer        
-    if type(options.num) == type(int):
-        return True
-    else:
+    try:
+        num = int(options.num)
+    except: 
         print "number of arguments must be a whole number"
         return False
-    if options.num < 0:   
+
+    if num < 0:   
         print "the number of arguments must be a positive number"        
         return False
-    if options.num > 10:   
+    if num > 10:   
         print "too many sines, must be fewer than 10"
         return False
         
     #check to see if the file exists
-    if os.path.exists(options.file):
+    if options.file and os.path.exists(options.file):
         print "File exists"
         return False
     
     return True
-
-def create_legend(n):
 
 
 def sine_plot(n):
@@ -92,11 +92,15 @@ def main(options):
     3.  Plot to a file
     5.  Add a legend"""
 
-    legend = plot_sines(options.num)
+    if not check_args(options):
+        print "Arg Errors. Exiting"
+        sys.exit(1)
+
+    legend = sine_plot(int(options.num))
 
     if options.file:
         plt.savefig(options.file)
-    print "Has the figure been saved? {}".format(os.path.exists(options.file))
+        print "Has the figure been saved? {}".format(os.path.exists(options.file))
 
     if options.legend:
         plt.legend(legend)
