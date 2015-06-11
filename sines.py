@@ -20,7 +20,45 @@ def check_args(options):
 
 def sine_plot(n):
     """ 2. This plots the sine waves and returns an axis object"""
-    pass
+import matplotlib.pyplot as plt
+import numpy as np
+import random
+
+x = np.linspace(0,10,50)
+n = 8
+S = []
+Legend = []
+color_cycles=['r','g','b','y','c','m','k', 'o']
+
+for i in range(n):
+    phi = random.random()*2*np.pi
+    A = random.random()
+    y = A*np.sin(x + phi)
+    S.append(y)
+
+for i in range(n):
+    t = "-"+color_cycles[i]    
+    plt.plot(x, S[i], t)
+    name = 'sin' + str(i+1)
+    Legend.append(name)
+    
+plt.legend(Legend)
+plt.title('Sine waves with diffrent amplitudes')
+plt.xlabel('X (pi)')
+plt.xlim((0, 5))
+plt.ylabel('Sine')
+plt.ylim((-1, 1))
+plt.rc('lines', linewidth=1)
+plt.show()
+
+
+
+
+
+#plt.savefig(os.path.join(plot_dir, 'plot_example1.png'))
+    #pass
+
+
 
 def main(options):
     """ The main function 
