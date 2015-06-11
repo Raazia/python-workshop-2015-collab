@@ -13,10 +13,30 @@ usage:
 
     python sines.py -n 3 -l -f file.png
 """
+import os
 
 def check_args(options):
     """ 4. Return a Boolean check of the arguments"""
-    pass
+    
+    #check if the number of variables is an integer        
+    if type(options.num) == type(int):
+        return True
+    else:
+        print "number of arguments must be a whole number"
+        return False
+    if options.num < 0:   
+        print "the number of arguments must be a positive number"        
+        return False
+    if options.num > 10:   
+        print "too many sines, must be fewer than 10"
+        return False
+        
+    #check to see if the file exists
+    if os.path.exists(options.file):
+        print "File exists"
+        return False
+    
+    return True
 
 def sine_plot(n):
     """ 2. This plots the sine waves and returns an axis object"""
