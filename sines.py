@@ -20,17 +20,20 @@ def check_args(options):
 
 def sine_plot(n):
     """ 2. This plots the sine waves and returns an axis object"""
-    pass
+    
 
 def main(options):
     """ The main function 
 
     3.  Plot to a file
     5.  Add a legend"""
-    pass
+    
+    if  options.legend:
+        plt.legend(['Sines'])
 
 
 if __name__ == '__main__':
     # 1. parse options
     main(options)
+    
 
