@@ -22,6 +22,10 @@ def sine_plot(n):
     """ 2. This plots the sine waves and returns an axis object"""
     pass
 
+def create_parser():
+    """ Create a parser to use"""
+    pass
+
 def main(options):
     """ The main function 
 
