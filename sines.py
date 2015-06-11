@@ -22,6 +22,9 @@ def sine_plot(n):
     """ 2. This plots the sine waves and returns an axis object"""
     pass
 
+def print_name():
+    print ("shamekha")
+
 def main(options):
     """ The main function 
 
