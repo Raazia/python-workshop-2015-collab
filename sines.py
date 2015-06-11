@@ -23,7 +23,7 @@ def sine_plot(n):
     pass
 
 def print_name():
-    print ("shamekha")
+    print ("my name is .....")
 
 def main(options):
     """ The main function 
