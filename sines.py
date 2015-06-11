@@ -27,7 +27,12 @@ def main(options):
 
     3.  Plot to a file
     5.  Add a legend"""
-    pass
+
+plt.savefig('FILENAME')
+print "Has the figure been saved? {}".format(os.path.exists('FILENAME.png'))
+
+
+
 
 
 if __name__ == '__main__':
