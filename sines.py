@@ -15,6 +15,7 @@ usage:
 """
 import argparse
 import os
+from matplotlib import pyplot as plt
 
 def check_args(options):
     """ 4. Return a Boolean check of the arguments"""
@@ -60,11 +61,9 @@ def main(options):
     3.  Plot to a file
     5.  Add a legend"""
 
-plt.savefig('FILENAME')
-print "Has the figure been saved? {}".format(os.path.exists('FILENAME.png'))
-
-
-
+    if options.file:
+        plt.savefig(options.file)
+    print "Has the figure been saved? {}".format(os.path.exists(options.file))
 
 
 if __name__ == '__main__':   
